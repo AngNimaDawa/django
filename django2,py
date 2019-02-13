@@ -1,0 +1,22 @@
+from django.db import models
+
+
+class Profile(models.Model):
+	Male = 'm'
+	Famel = 'f'
+	GENDER_CHOICES = {
+		(MALE, 'Male'),
+		(FEMALE, 'Famel'),
+		}
+	profile_pic = models.ImageField(upload_to='profile',null=True, blank=True)
+	address = models.CharField(max_length=30)
+	country = models.CharField(max_length=30)
+	mobile = models.CharField(max_length=15, unique=True)
+	dob = models.DateField()
+	gender = models.CharField(max_length=6)
+	profession = models.CharField(max_length=20,
+							choices=GENDER_CHOICES)
+	profession = models.CharField(max_length=20)
+
+	def__str__(self):
+		return self.name
